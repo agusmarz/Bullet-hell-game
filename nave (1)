@@ -1,0 +1,35 @@
+#ifndef PARTIDA_H
+#define PARTIDA_H
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
+#include "fondo_p.h"
+#include "nave.h"
+#include "disparo.h"
+#include "alien.h"
+#include "disparo_alien.h"
+#include <SFML/Graphics/Text.hpp>
+#include <SFML/Graphics/Font.hpp>
+#include "particula_explo.h"
+#include <SFML/System/Clock.hpp>
+
+using namespace sf;
+class Partida : public Scene{
+public:
+	Partida();
+	void dibujar(RenderWindow &w);
+	bool actualizar();
+private:
+	vector<Enemigo*> enemigos;
+	vector<vector <Enemigo*>> mapa;
+	Text puntaje_texto;
+	vector<disparo*> vd;
+	vector<disparo*> valf;
+	nave na;
+	fondo_p strelas;
+	vector<particula_explo> explo;
+	Clock reloj_global;
+};
+
+#endif
+
